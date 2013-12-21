@@ -4,7 +4,7 @@ import (
 	"os/exec"
 )
 
-func Compile(files *[]string, outputFilePath string) {
+func Compile(files *[]string, outputFilePath string) error {
 	args := make([]string, len(*files)*2+2)
 
 	for i, file := range *files {
@@ -18,6 +18,8 @@ func Compile(files *[]string, outputFilePath string) {
 	cmd := exec.Command("closure-compiler", args...)
 
 	if err := cmd.Run(); err != nil {
-		panic(err)
+		return err
 	}
+
+	return nil
 }
