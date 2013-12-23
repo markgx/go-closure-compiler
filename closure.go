@@ -4,8 +4,11 @@ import (
 	"os/exec"
 )
 
-// Compile takes an array of input file names and outputs to the given output file path.
-// It takes a string map with additional options.
+/*
+Compile takes an array of input file names and outputs to the given output file path.
+It takes a string map with additional options. Options can be found by running the
+following command: $ closure-compiler --help
+*/
 func Compile(files *[]string, outputFilePath string, options map[string]string) error {
 	optionsArray := []string{}
 
